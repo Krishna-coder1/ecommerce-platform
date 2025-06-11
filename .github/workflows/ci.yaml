@@ -52,7 +52,7 @@ jobs:
 
     docker:
         runs-on: ubuntu-latest
-
+        environment: ecommerce-dev
         needs: build
 
         steps:
@@ -79,7 +79,7 @@ jobs:
     
     updatek8s:
         runs-on: ubuntu-latest
-
+        environment: ecommerce-dev
         needs: docker
 
         steps:
@@ -94,11 +94,11 @@ jobs:
         
         - name: Commit and push changes
           run: |
-            git config --global user.email "abhishek@gmail.com"
-            git config --global user.name "Abhishek Veeramalla"
+            git config --global user.email "teja.krishna.akp@gmail.com"
+            git config --global user.name "Krishna-coder1"
             git add kubernetes/productcatalog/deploy.yaml
             git commit -m "[CI]: Update product catalog image tag"
-            git push origin HEAD:main -f
+            git push origin HEAD:refs/heads/main
 
         
         
